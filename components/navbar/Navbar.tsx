@@ -3,8 +3,8 @@ import Container from '../global/Container';
 import Logo from './Logo';
 import NavSearch from './NavSearch';
 import CartButton from './CartButton';
-import DarkMode from './DarkMode';
 import LinksDropdown from './LinksDropdown';
+import DarkMode from './DarkMode';
 
 function Navbar() {
   return (
