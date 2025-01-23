@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 export default function ModeToggle() {
+  const options = ['light', 'dark', 'system'];
   const { setTheme } = useTheme();
 
   return (
@@ -24,15 +25,33 @@ export default function ModeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme('light')}>
+        {options.map((option, index) => (
+          <DropdownMenuItem
+            key={index}
+            onClick={() => setTheme(option)}
+            className="cursor-pointer capitalize"
+          >
+            {option}
+          </DropdownMenuItem>
+        ))}
+        {/* <DropdownMenuItem
+          onClick={() => setTheme('light')}
+          className="cursor-pointer"
+        >
           Light
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('dark')}>
+        <DropdownMenuItem
+          onClick={() => setTheme('dark')}
+          className="cursor-pointer"
+        >
           Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('system')}>
+        </DropdownMenuItem> 
+        <DropdownMenuItem
+          onClick={() => setTheme('system')}
+          className="cursor-pointer"
+        >
           System
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
       </DropdownMenuContent>
     </DropdownMenu>
   );

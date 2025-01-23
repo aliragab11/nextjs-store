@@ -5,6 +5,8 @@ import Navbar from '@/components/navbar/Navbar';
 import Container from '@/components/global/Container';
 import Providers from './providers';
 
+// https://nextjs-store-production.vercel.app/
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
