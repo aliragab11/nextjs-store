@@ -14,6 +14,7 @@ import {
 import { formatCurrency } from '@/utils/format';
 import { IconButton } from '@/components/form/Buttons';
 import FormContainer from '@/components/form/FormContainer';
+import Image from 'next/image';
 
 async function AdminProductsPage() {
   const items = await fetchAdminProducts();
@@ -27,6 +28,7 @@ async function AdminProductsPage() {
         <TableHeader>
           <TableRow>
             <TableHead>Product Name</TableHead>
+            <TableHead>Image</TableHead>
             <TableHead>Company</TableHead>
             <TableHead>Price</TableHead>
             <TableHead>Actions</TableHead>
@@ -34,7 +36,7 @@ async function AdminProductsPage() {
         </TableHeader>
         <TableBody>
           {items.map((item) => {
-            const { name, company, price, id: productId } = item;
+            const { name, company, price, id: productId, image } = item;
             return (
               <TableRow key={productId}>
                 <TableCell>
@@ -44,6 +46,16 @@ async function AdminProductsPage() {
                   >
                     {name}
                   </Link>
+                </TableCell>
+                <TableCell>
+                  <Image
+                    src={image}
+                    alt={name}
+                    width={50}
+                    height={50}
+                    priority
+                    className="rounded w-[50px] h-[50px]"
+                  />
                 </TableCell>
                 <TableCell>{company}</TableCell>
                 <TableCell>{formatCurrency(price)}</TableCell>
