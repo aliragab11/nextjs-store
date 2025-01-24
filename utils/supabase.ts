@@ -1,4 +1,3 @@
-import { ne } from '@faker-js/faker';
 import { createClient } from '@supabase/supabase-js';
 
 const bucket = 'main-bucket';
