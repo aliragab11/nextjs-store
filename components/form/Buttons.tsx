@@ -72,3 +72,39 @@ export const IconButton = ({ actionType }: { actionType: ActionType }) => {
     </Button>
   );
 };
+
+export const CardSignInButton = () => {
+  return (
+    <SignInButton mode="modal">
+      <Button
+        type="button"
+        size={'icon'}
+        variant={'outline'}
+        className="p-2 cursor-pointer"
+        asChild
+      >
+        <FaRegHeart />
+      </Button>
+    </SignInButton>
+  );
+};
+export const CardSubmitButton = ({ isFavorite }: { isFavorite: boolean }) => {
+  const { pending } = useFormStatus();
+  return (
+    <Button
+      type="submit"
+      size={'icon'}
+      variant={'outline'}
+      className="p-2 cursor-pointer"
+      asChild
+    >
+      {pending ? (
+        <Loader2 className="animate-spin" />
+      ) : isFavorite ? (
+        <FaHeart />
+      ) : (
+        <FaRegHeart />
+      )}
+    </Button>
+  );
+};
