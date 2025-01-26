@@ -6,6 +6,8 @@ import FavoriteToggleButton from '@/components/products/FavoriteToggleButton';
 import AddToCart from '@/components/single-product/AddToCart';
 import ProductRating from '@/components/single-product/ProductRating';
 import ShareButton from '@/components/single-product/ShareButton';
+import SubmitReview from '@/components/reviews/SubmitReview';
+import ProductReviews from '@/components/reviews/ProductReviews';
 
 async function SingleProductPage({ params }: { params: { id: string } }) {
   const product = await fetchSingleProduct(params.id);
@@ -44,6 +46,10 @@ async function SingleProductPage({ params }: { params: { id: string } }) {
           <p className="mt-6 leading-8 text-muted-foreground">{description}</p>
           <AddToCart productId={params.id} />
         </div>
+      </div>
+      <div>
+        <ProductReviews productId={product.id} />
+        <SubmitReview productId={product.id} />
       </div>
     </section>
   );
